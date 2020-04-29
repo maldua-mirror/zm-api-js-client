@@ -38,7 +38,7 @@
 	"repository": "Zimbra/zm-api-js-client",
 	"license": "BSD-3-Clause",
 	"dependencies": {
-		"@apollo/client": "^3.0.0-beta.31",
+		"@apollo/client": "^3.0.0-beta.44",
 		"@apollo/link-batch": "^2.0.0-beta.3",
 		"@apollo/link-error": "^2.0.0-beta.3",
 		"dataloader": "^1.4.0",
