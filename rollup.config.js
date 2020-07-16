@@ -44,7 +44,8 @@ export default {
 				'graphql/subscription': Object.keys(graphqlSubscription),
 				'graphql/error': Object.keys(graphqlError),
 				'graphql/utilities': Object.keys(graphqlUtilities),
-				'graphql/validation': Object.keys(graphqlValidators)
+				'graphql/validation': Object.keys(graphqlValidators),
+				'react': ['useRef']
 			}
 		}),
 		typescript({
