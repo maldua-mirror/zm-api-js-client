@@ -4,7 +4,7 @@ import {
 	Observable,
 	Operation
 } from '@apollo/client/core';
-import { BatchLink } from '@apollo/link-batch';
+import { BatchLink } from '@apollo/client/link/batch';
 import { graphql } from 'graphql';
 import { print } from 'graphql/language/printer';
 import events from 'mitt';
