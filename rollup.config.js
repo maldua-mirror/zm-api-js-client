@@ -12,7 +12,6 @@ import * as graphqlSubscription from 'graphql/subscription';
 import * as graphqlError from 'graphql/error';
 import * as graphqlUtilities from 'graphql/utilities';
 import * as graphqlValidators from 'graphql/validation';
-import * as preactCompat from 'preact/compat';
 
 let FORMAT = process.env.FORMAT;
 
@@ -24,7 +23,7 @@ let external = FORMAT==='es' ?
 		.concat(
 			['castArray', 'get','isError', 'isObject', 'mapValues', 'reduce', 'omitBy', 'uniqBy', 'concat', 'uniqBy', 'differenceBy', 'forEach'].map(v => 'lodash/'+v),
 			['graphql/language/printer', 'graphql/type']) :
-	['graphql-tools', 'react'];
+	['graphql-tools'];
 
 
 export default {
@@ -45,8 +44,7 @@ export default {
 				'graphql/subscription': Object.keys(graphqlSubscription),
 				'graphql/error': Object.keys(graphqlError),
 				'graphql/utilities': Object.keys(graphqlUtilities),
-				'graphql/validation': Object.keys(graphqlValidators),
-				'react': Object.keys(preactCompat)
+				'graphql/validation': Object.keys(graphqlValidators)
 			}
 		}),
 		typescript({
