@@ -12,6 +12,7 @@ import * as graphqlSubscription from 'graphql/subscription';
 import * as graphqlError from 'graphql/error';
 import * as graphqlUtilities from 'graphql/utilities';
 import * as graphqlValidators from 'graphql/validation';
+import * as graphqlToolsSchema from '@graphql-tools/schema';
 
 let FORMAT = process.env.FORMAT;
 
@@ -22,8 +23,8 @@ let external = FORMAT==='es' ?
 	Object.keys(pkg.dependencies)
 		.concat(
 			['castArray', 'get','isError', 'isObject', 'mapValues', 'reduce', 'omitBy', 'uniqBy', 'concat', 'uniqBy', 'differenceBy', 'forEach'].map(v => 'lodash/'+v),
-			['graphql/language/printer', 'graphql/type']) :
-	['graphql-tools'];
+			['graphql/language/printer', 'graphql/type', '@graphql-tools/schema']) :
+	['@graphql-tools/schema'];
 
 
 export default {

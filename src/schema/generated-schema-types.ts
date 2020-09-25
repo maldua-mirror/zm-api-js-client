@@ -1931,6 +1931,7 @@ export type AccountInfoAttrs = {
   zimbraFeatureBriefcasesEnabled?: Maybe<Scalars['Boolean']>;
   zimbraFeatureMobileSyncEnabled?: Maybe<Scalars['Boolean']>;
   zimbraFeatureRelatedContactsEnabled?: Maybe<Scalars['Boolean']>;
+  zimbraPasswordBlockCommonEnabled?: Maybe<Scalars['Boolean']>;
   zimbraPasswordMinAlphaChars?: Maybe<Scalars['Int']>;
   zimbraPasswordMinNumericChars?: Maybe<Scalars['Int']>;
   zimbraPasswordMinUpperCaseChars?: Maybe<Scalars['Int']>;
@@ -2884,12 +2885,10 @@ export type RecoverAccount = {
   recoveryAttemptsLeft?: Maybe<Scalars['Int']>;
 };
 
-
-export type MutationChangePasswordArgs = {
-  dryRun?: Maybe<Scalars['Boolean']>;
-  loginNewPassword: Scalars['String'];
-  password: Scalars['String'];
-  username: Scalars['String'];
+export type WhiteBlackAddress = {
+  __typename?: 'WhiteBlackAddress';
+  _content: Scalars['String'];
+  op?: Maybe<Scalars['String']>;
 };
 
 export type WhiteBlackListArr = {
@@ -4281,6 +4280,7 @@ export type MutationChangeFolderColorArgs = {
 
 
 export type MutationChangePasswordArgs = {
+  dryRun?: Maybe<Scalars['Boolean']>;
   loginNewPassword: Scalars['String'];
   password: Scalars['String'];
   username: Scalars['String'];
