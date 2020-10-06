@@ -12,7 +12,6 @@ import * as graphqlSubscription from 'graphql/subscription';
 import * as graphqlError from 'graphql/error';
 import * as graphqlUtilities from 'graphql/utilities';
 import * as graphqlValidators from 'graphql/validation';
-import * as graphqlToolsSchema from '@graphql-tools/schema';
 
 let FORMAT = process.env.FORMAT;
 
