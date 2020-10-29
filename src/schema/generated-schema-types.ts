@@ -1,5 +1,5 @@
 export type Maybe<T> = T | null;
-export type Exact<T extends { [key: string]: any }> = { [K in keyof T]: T[K] };
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -37,62 +37,12 @@ export enum ShareInputAction {
   Expire = 'expire'
 }
 
-export type AccountInfoAttrs = {
-  __typename?: 'AccountInfoAttrs';
-  displayName?: Maybe<Scalars['String']>;
-  zimbraDomainTrialConvertAtExpiration?: Maybe<Scalars['Boolean']>;
-  zimbraDomainTrialExpirationDate?: Maybe<Scalars['String']>;
-  zimbraDumpsterEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraIsAdminAccount?: Maybe<Scalars['Boolean']>;
-  zimbraIsDelegatedAdminAccount?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureMailEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureCalendarEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureBriefcasesEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureMobileSyncEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureRelatedContactsEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPasswordBlockCommonEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPasswordMinAlphaChars?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinNumericChars?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinUpperCaseChars?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinDigitsOrPuncs?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinPunctuationChars?: Maybe<Scalars['Int']>;
-  zimbraPasswordMaxLength?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinLength?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinLowerCaseChars?: Maybe<Scalars['Int']>;
-  zimbraPasswordMinAge?: Maybe<Scalars['Int']>;
-  zimbraPasswordMaxAge?: Maybe<Scalars['Int']>;
-  zimbraPasswordEnforceHistory?: Maybe<Scalars['Int']>;
-  zimbraPasswordAllowedChars?: Maybe<Scalars['String']>;
-  zimbraPasswordAllowedPunctuationChars?: Maybe<Scalars['String']>;
-  zimbraFeatureChangePasswordEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureResetPasswordStatus?: Maybe<ResetPasswordStatus>;
-  zimbraFeatureWebClientOfflineAccessEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraMailBlacklistMaxNumEntries?: Maybe<Scalars['Int']>;
-  zimbraMailQuota?: Maybe<Scalars['String']>;
-  zimbraPublicSharingEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraExternalSharingEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureGalEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureGalAutoCompleteEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureOutOfOfficeReplyEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureFiltersEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureReadReceiptsEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureSharingEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureManageZimlets?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureTwoFactorAuthAvailable?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureTwoFactorAuthRequired?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureViewInHtmlEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureZulipChatEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraTwoFactorAuthEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureTrustedDevicesEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureAppSpecificPasswordsEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureMailPriorityEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFileUploadMaxSize?: Maybe<Scalars['Float']>;
-  zimbraMailAlias?: Maybe<Array<Maybe<Scalars['String']>>>;
-  zimbraFeatureTaggingEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraIdentityMaxNumEntries?: Maybe<Scalars['Int']>;
-  zimbraFeatureIdentitiesEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraFeatureMailSendLaterEnabled?: Maybe<Scalars['Boolean']>;
-};
+export enum FreeBusyStatus {
+  F = 'F',
+  B = 'B',
+  T = 'T',
+  O = 'O'
+}
 
 export enum AccountType {
   Imap = 'imap',
@@ -1425,6 +1375,7 @@ export type AccountInfoAttrs = {
   zimbraFeatureTwoFactorAuthAvailable?: Maybe<Scalars['Boolean']>;
   zimbraFeatureTwoFactorAuthRequired?: Maybe<Scalars['Boolean']>;
   zimbraFeatureViewInHtmlEnabled?: Maybe<Scalars['Boolean']>;
+  zimbraFeatureZulipChatEnabled?: Maybe<Scalars['Boolean']>;
   zimbraTwoFactorAuthEnabled?: Maybe<Scalars['Boolean']>;
   zimbraFeatureTrustedDevicesEnabled?: Maybe<Scalars['Boolean']>;
   zimbraFeatureAppSpecificPasswordsEnabled?: Maybe<Scalars['Boolean']>;
@@ -1434,6 +1385,7 @@ export type AccountInfoAttrs = {
   zimbraFeatureTaggingEnabled?: Maybe<Scalars['Boolean']>;
   zimbraIdentityMaxNumEntries?: Maybe<Scalars['Int']>;
   zimbraFeatureIdentitiesEnabled?: Maybe<Scalars['Boolean']>;
+  zimbraFeatureMailSendLaterEnabled?: Maybe<Scalars['Boolean']>;
 };
 
 export type AccountCos = {
@@ -1542,6 +1494,7 @@ export type Preferences = {
   zimbraPrefCalendarApptReminderWarningTime?: Maybe<Scalars['Int']>;
   zimbraPrefCalendarShowPastDueReminders?: Maybe<Scalars['Boolean']>;
   zimbraPrefCalendarToasterEnabled?: Maybe<Scalars['Boolean']>;
+  zimbraPrefCalendarAlwaysShowMiniCal?: Maybe<Scalars['Boolean']>;
   zimbraPrefComposeDirection?: Maybe<Scalars['String']>;
   zimbraPrefComposeFormat?: Maybe<Mode>;
   zimbraPrefHtmlEditorDefaultFontColor?: Maybe<Scalars['String']>;
@@ -2567,6 +2520,7 @@ export type PreferencesInput = {
   zimbraPrefCalendarApptReminderWarningTime?: Maybe<Scalars['Int']>;
   zimbraPrefCalendarShowPastDueReminders?: Maybe<Scalars['Boolean']>;
   zimbraPrefCalendarToasterEnabled?: Maybe<Scalars['Boolean']>;
+  zimbraPrefCalendarAlwaysShowMiniCal?: Maybe<Scalars['Boolean']>;
   zimbraPrefComposeDirection?: Maybe<Scalars['String']>;
   zimbraPrefComposeFormat?: Maybe<Mode>;
   zimbraPrefHtmlEditorDefaultFontColor?: Maybe<Scalars['String']>;
@@ -3088,120 +3042,15 @@ export type SMimePublicCerts = {
   cert?: Maybe<Array<Maybe<SMimePublicCert>>>;
 };
 
-export type Preferences = {
-  __typename?: 'Preferences';
-  zimbraPrefAutoAddAppointmentsToCalendar?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarAutoAddInvites?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarFirstDayOfWeek?: Maybe<Scalars['Int']>;
-  zimbraPrefCalendarInitialView?: Maybe<PrefCalendarInitialView>;
-  zimbraPrefCalendarReminderEmail?: Maybe<Scalars['String']>;
-  zimbraPrefCalendarWorkingHours?: Maybe<Scalars['String']>;
-  zimbraPrefCalendarApptReminderWarningTime?: Maybe<Scalars['Int']>;
-  zimbraPrefCalendarShowPastDueReminders?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarToasterEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarAlwaysShowMiniCal?: Maybe<Scalars['Boolean']>;
-  zimbraPrefComposeDirection?: Maybe<Scalars['String']>;
-  zimbraPrefComposeFormat?: Maybe<Mode>;
-  zimbraPrefHtmlEditorDefaultFontColor?: Maybe<Scalars['String']>;
-  zimbraPrefHtmlEditorDefaultFontFamily?: Maybe<Scalars['String']>;
-  zimbraPrefHtmlEditorDefaultFontSize?: Maybe<Scalars['String']>;
-  zimbraPrefMailToasterEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefShowAllNewMailNotifications?: Maybe<Scalars['Boolean']>;
-  zimbraPrefDefaultCalendarId?: Maybe<Scalars['ID']>;
-  zimbraPrefDeleteInviteOnReply?: Maybe<Scalars['Boolean']>;
-  zimbraPrefDelegatedSendSaveTarget?: Maybe<PrefDelegatedSendSaveTarget>;
-  zimbraPrefDisplayExternalImages?: Maybe<Scalars['Boolean']>;
-  zimbraPrefGroupMailBy?: Maybe<Scalars['String']>;
-  zimbraPrefMailPollingInterval?: Maybe<Scalars['String']>;
-  zimbraPrefMailRequestReadReceipts?: Maybe<Scalars['Boolean']>;
-  zimbraPrefMailSelectAfterDelete?: Maybe<PrefMailSelectAfterDelete>;
-  zimbraPrefMailSendReadReceipts?: Maybe<PrefMailSendReadReceipts>;
-  zimbraPrefMailTrustedSenderList?: Maybe<Array<Maybe<Scalars['String']>>>;
-  zimbraPrefMarkMsgRead?: Maybe<Scalars['Int']>;
-  zimbraPrefMessageViewHtmlPreferred?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeFromDate?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeExternalReply?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeExternalReplyEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeReply?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeReplyEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeStatusAlertOnLogin?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeSuppressExternalReply?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeUntilDate?: Maybe<Scalars['String']>;
-  zimbraPrefReadingPaneEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefReadingPaneLocation?: Maybe<ReadingPaneLocation>;
-  zimbraPrefBriefcaseReadingPaneLocation?: Maybe<ReadingPaneLocation>;
-  zimbraPrefPasswordRecoveryAddress?: Maybe<Scalars['String']>;
-  zimbraPrefPasswordRecoveryAddressStatus?: Maybe<PasswordRecoveryAddressStatus>;
-  zimbraPrefSaveToSent?: Maybe<Scalars['Boolean']>;
-  zimbraPrefShowFragments?: Maybe<Scalars['Boolean']>;
-  zimbraPrefSlackCalendarReminderEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefSortOrder?: Maybe<Scalars['String']>;
-  zimbraPrefWebClientOfflineBrowserKey?: Maybe<Scalars['String']>;
-  zimbraPrefTimeZoneId?: Maybe<Scalars['String']>;
-  zimbraPrefLocale?: Maybe<Scalars['String']>;
-  zimbraPrefClientType?: Maybe<PrefClientType>;
-  zimbraPrefAppleIcalDelegationEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarShowDeclinedMeetings?: Maybe<Scalars['Boolean']>;
-  zimbraPrefUseTimeZoneListInCalendar?: Maybe<Scalars['Boolean']>;
-  zimbraPrefMailForwardingAddress?: Maybe<Scalars['String']>;
-  zimbraPrefMailLocalDeliveryDisabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefTagTreeOpen?: Maybe<Scalars['Boolean']>;
+export type SMimePublicCertsResponse = {
+  __typename?: 'SMimePublicCertsResponse';
+  certs?: Maybe<Array<Maybe<SMimePublicCerts>>>;
 };
 
-export type PreferencesInput = {
-  zimbraPrefAutoAddAppointmentsToCalendar?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarAutoAddInvites?: Maybe<Scalars['Boolean']>;
-  zimbraPrefDefaultCalendarId?: Maybe<Scalars['ID']>;
-  zimbraPrefCalendarFirstDayOfWeek?: Maybe<Scalars['Int']>;
-  zimbraPrefCalendarInitialView?: Maybe<PrefCalendarInitialView>;
-  zimbraPrefCalendarReminderEmail?: Maybe<Scalars['String']>;
-  zimbraPrefCalendarWorkingHours?: Maybe<Scalars['String']>;
-  zimbraPrefCalendarApptReminderWarningTime?: Maybe<Scalars['Int']>;
-  zimbraPrefCalendarShowPastDueReminders?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarToasterEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarAlwaysShowMiniCal?: Maybe<Scalars['Boolean']>;
-  zimbraPrefComposeDirection?: Maybe<Scalars['String']>;
-  zimbraPrefComposeFormat?: Maybe<Mode>;
-  zimbraPrefHtmlEditorDefaultFontColor?: Maybe<Scalars['String']>;
-  zimbraPrefHtmlEditorDefaultFontFamily?: Maybe<Scalars['String']>;
-  zimbraPrefHtmlEditorDefaultFontSize?: Maybe<Scalars['String']>;
-  zimbraPrefMailToasterEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefShowAllNewMailNotifications?: Maybe<Scalars['Boolean']>;
-  zimbraPrefDelegatedSendSaveTarget?: Maybe<PrefDelegatedSendSaveTarget>;
-  zimbraPrefDisplayExternalImages?: Maybe<Scalars['Boolean']>;
-  zimbraPrefGroupMailBy?: Maybe<Scalars['String']>;
-  zimbraPrefMailPollingInterval?: Maybe<Scalars['String']>;
-  zimbraPrefMailRequestReadReceipts?: Maybe<Scalars['Boolean']>;
-  zimbraPrefMailSelectAfterDelete?: Maybe<PrefMailSelectAfterDelete>;
-  zimbraPrefMailSendReadReceipts?: Maybe<PrefMailSendReadReceipts>;
-  zimbraPrefMailTrustedSenderList?: Maybe<Array<Maybe<Scalars['String']>>>;
-  zimbraPrefMarkMsgRead?: Maybe<Scalars['Int']>;
-  zimbraPrefMessageViewHtmlPreferred?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeFromDate?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeExternalReply?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeExternalReplyEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeReply?: Maybe<Scalars['String']>;
-  zimbraPrefOutOfOfficeReplyEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeStatusAlertOnLogin?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeSuppressExternalReply?: Maybe<Scalars['Boolean']>;
-  zimbraPrefOutOfOfficeUntilDate?: Maybe<Scalars['String']>;
-  zimbraPrefReadingPaneEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefReadingPaneLocation?: Maybe<ReadingPaneLocation>;
-  zimbraPrefBriefcaseReadingPaneLocation?: Maybe<ReadingPaneLocation>;
-  zimbraPrefSaveToSent?: Maybe<Scalars['Boolean']>;
-  zimbraPrefShowFragments?: Maybe<Scalars['Boolean']>;
-  zimbraPrefSlackCalendarReminderEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefSortOrder?: Maybe<Scalars['String']>;
-  zimbraPrefWebClientOfflineBrowserKey?: Maybe<Scalars['String']>;
-  zimbraPrefTimeZoneId?: Maybe<Scalars['String']>;
-  zimbraPrefLocale?: Maybe<Scalars['String']>;
-  zimbraPrefClientType?: Maybe<PrefClientType>;
-  zimbraPrefAppleIcalDelegationEnabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefCalendarShowDeclinedMeetings?: Maybe<Scalars['Boolean']>;
-  zimbraPrefUseTimeZoneListInCalendar?: Maybe<Scalars['Boolean']>;
-  zimbraPrefMailForwardingAddress?: Maybe<Scalars['String']>;
-  zimbraPrefMailLocalDeliveryDisabled?: Maybe<Scalars['Boolean']>;
-  zimbraPrefTagTreeOpen?: Maybe<Scalars['Boolean']>;
+export type SMimeMessage = {
+  __typename?: 'SMimeMessage';
+  id?: Maybe<Scalars['ID']>;
+  content?: Maybe<Scalars['String']>;
 };
 
 export type Attachment = {
